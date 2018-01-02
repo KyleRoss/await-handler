@@ -15,10 +15,17 @@ describe('Await Handler', function() {
             assert.ok(res === 'success');
         });
         
-        it('should receive one property on error', async function() {
+        it('should receive error and undefined', async function() {
             let [err, res] = await on(Promise.reject('error'));
             assert.ok(err === 'error');
-            assert.ok(!res);
+            assert.ok(res === undefined);
+        });
+        
+        it('should include additional properties on error object', async function() {
+            let [err, res] = await on(Promise.reject(new Error('Test')), { prop: 'test' });
+            assert.ok(err instanceof Error);
+            assert.ok(err.prop === 'test');
+            assert.ok(res === undefined);
         });
     });
 });
