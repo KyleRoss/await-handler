@@ -17,24 +17,40 @@ npm i await-handler --save
 ```js
 const on = require('await-handler');
 
-async function asyncFunctionExample(callback) {
+async function asyncFunctionExample() {
     let [err, result] = await on(myAsyncTask());
-    if(err) return callback(err);
+    if(err) {
+        console.error(err);
+        return process.exit(1);
+    }
     
-    // ...
+    // ... handle the result
+    console.log(result);
 }
-
-asyncFunctionExample(function(err) {
-    console.error(err);
-});
 ```
 
 ## API
 
-### on(promise)
+### on(promise[, errorProps])
 **Type:** Function
 
-Adds handler to `promise` for returning data when resolved and an error when rejected. The handlers return an array with the signature `[error, data]`. If `error` is not `null`, it will be the rejection response from the Promise. The `data` value will be the value resolved from the Promise.
+Adds handler to `promise` for returning data when resolved and an error when rejected. The handlers return an array with the signature `[error, data]`. If `error` is not `null`, it will be the rejection response from the Promise and `data` will be `undefined`. The `data` value will be the value resolved from the Promise.
+
+Optionally add additional properties to the returned error by providing an Object to `errorProps`.
+
+**Example:**
+```js
+async function asyncFunctionExample() {
+    let [err, result] = await on(myAsyncTask(), { customMessage: 'Something failed!' });
+    if(err) {
+        console.error(err.customMessage);
+        return process.exit(1);
+    }
+    
+    // ... handle the result
+    console.log(result);
+}
+```
 
 ---
 
