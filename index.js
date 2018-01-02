@@ -10,5 +10,6 @@ module.exports = function awaitHandler(promise, errorProps) {
         return [null, data];
     }).catch(err => {
         if(errorProps) Object.assign(err, errorProps);
+        return [err, undefined];
     });
 };
