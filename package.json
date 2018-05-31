@@ -1,6 +1,6 @@
 {
   "name": "await-handler",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Basic wrapper for await that allows handling of errors without try/catch blocks",
   "main": "index.js",
   "scripts": {
