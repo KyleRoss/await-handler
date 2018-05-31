@@ -28,6 +28,6 @@
   },
   "homepage": "https://github.com/KyleRoss/await-handler#readme",
   "devDependencies": {
-    "mocha": "^4.0.1"
+    "mocha": "^5.2.0"
   }
 }
