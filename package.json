@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/KyleRoss/await-handler/issues"
   },
-  "homepage": "https://github.com/KyleRoss/await-handler#readme",
+  "homepage": "https://github.com/KyleRoss/await-handler",
   "devDependencies": {
     "mocha": "^5.2.0"
   }
