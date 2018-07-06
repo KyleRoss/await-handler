@@ -19,7 +19,12 @@
     "block",
     "async",
     "asyncawait",
-    "trycatch"
+    "trycatch",
+    "go",
+    "golang",
+    "signature",
+    "await-to-js",
+    "awaittojs"
   ],
   "author": "Kyle Ross <thejavascriptguy@gmail.com>",
   "license": "MIT",
