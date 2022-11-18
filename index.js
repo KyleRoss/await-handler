@@ -5,7 +5,7 @@
  * @param  {Object}  errorProps Object containing additional properties to include in a returned error
  * @return {Promise<Array>}     Array with signature `[err, results]`
  */
-module.exports = function awaitHandler(promise, errorProps) {
+module.exports = function awaitHandler(promise, errorProps = undefined) {
     return promise.then(data => {
         return [null, data];
     }).catch(err => {
